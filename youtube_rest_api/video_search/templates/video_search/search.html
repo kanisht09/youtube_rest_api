@@ -7,24 +7,45 @@
     <title>Search YouTube</title>
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/09d275fb73.js" crossorigin="anonymous"></script>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <!-- Custom styles for this template -->
     <link href="{% static 'video_search/album.css' %}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      .bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.primary-heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  /* font-size: 10rem; */
+}
+.search-bar{
+  outline: none;
+  box-shadow: none;
+}
+.search-btn{
+  padding: 0 1rem ;
+}
+body {
+  background-color: aqua;
+}
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+    </style>
   </head>
   <body>
 
@@ -32,12 +53,13 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Search YouTube</h1>
+      <h1 class="primary-heading">Search on YouTube</h1>
       <p class="lead text-muted">Get the top results on YouTube for your query!</p>
       <form method="POST">
       <div class="input-group mb-3">
           {% csrf_token %}
-          <input type="text" name="search" class="form-control" aria-label="Username">
+          <input type="text" name="search" class="form-control search-bar" aria-label="Username">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
       </div>
       <p>
         <button type="submit" name="submit" value="search" class="btn btn-primary my-2">YouTube Search</button>
